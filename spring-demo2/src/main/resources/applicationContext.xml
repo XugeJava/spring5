@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--创建各种对象-->
+    <!--创建数据访问层对象-->
+    <bean id="userMapper" class="com.xuge.dao.Impl.UserMapperImpl">
+
+    </bean>
+    <!--创建业务逻辑层对象-->
+    <bean id="userService" class="com.xuge.service.Impl.UserServiceImpl">
+       <property name="userMapper" ref="userMapper"/>
+    </bean>
+    <!--创建界面层对象-->
+    <bean id="userController" class="com.xuge.controller.UserController">
+        <property name="userService" ref="userService"/>
+    </bean>
+
+</beans>
